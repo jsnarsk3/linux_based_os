@@ -1,0 +1,18 @@
+boot.o: boot.S multiboot.h x86_desc.h types.h
+exceptions.o: exceptions.S exceptions.h
+paging.o: paging.S paging.h
+x86_desc.o: x86_desc.S x86_desc.h types.h
+exceptions_c.o: exceptions_c.c exceptions_c.h lib.h types.h i8259.h
+filesys.o: filesys.c filesys.h pcb.h types.h lib.h
+i8259.o: i8259.c i8259.h types.h lib.h
+kernel.o: kernel.c multiboot.h types.h x86_desc.h lib.h i8259.h debug.h \
+  tests.h paging_c.h exceptions.h filesys.h pcb.h rtc_driver.h \
+  key_driver.h
+key_driver.o: key_driver.c key_driver.h types.h i8259.h lib.h pcb.h
+lib.o: lib.c lib.h types.h
+paging_c.o: paging_c.c paging_c.h types.h x86_desc.h paging.h
+rtc_driver.o: rtc_driver.c rtc_driver.h pcb.h types.h i8259.h lib.h
+sys_calls.o: sys_calls.c sys_calls.h x86_desc.h types.h rtc_driver.h \
+  pcb.h filesys.h lib.h key_driver.h paging_c.h paging.h
+tests.o: tests.c tests.h x86_desc.h types.h lib.h paging_c.h paging.h \
+  i8259.h filesys.h pcb.h rtc_driver.h key_driver.h
